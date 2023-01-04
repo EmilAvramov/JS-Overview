@@ -1,11 +1,13 @@
-const fs = require('fs/promises');
+import fs from 'fs/promises';
+import path from 'path';
+
+const filePath = path.join(__dirname, '../data/weather.json')
 
 const readData = async () => {
     try {
-        const data = await fs.readFile('../data/weather.json', { encoding: 'utf8' });
-        console.log(data);
-      } catch (err) {
-        console.log(err);
+        return await fs.readFile(filePath, { encoding: 'utf8' });
+      } catch {
+        return 'Something went wrong'
       } 
 }
 
